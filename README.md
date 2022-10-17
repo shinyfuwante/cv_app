@@ -1,4 +1,4 @@
-#CV Application
+# CV Application
 
 This is my first foray into using React, and I will be creating an application that can take in many inputs in a form and spit out a CV/Resume. This project aims to heavily use props/state and solidify these concepts for me before I move on to other React topics.
 
