@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+}
+.general-info-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.general-info {
+    font-size: large;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
