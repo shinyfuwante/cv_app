@@ -1,0 +1,15 @@
+.edu-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0.5em 0 0.5em 0;
+}
+
+.edu-dates {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.edu-dates > input {
+    flex: 1 0 auto;
+}
