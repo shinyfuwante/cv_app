@@ -1,0 +1,19 @@
+.work-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0.5em 0 0.5em 0;
+}
+
+.work-dates {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.work-dates > input {
+    flex: 1 0 auto;
+}
+
+#workDesc {
+    font-family: sans-serif;
+}
