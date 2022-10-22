@@ -134,6 +134,12 @@ class InputForm extends React.Component {
       workID: new Date(),
     });
   };
+  deleteWork = (e, jobToDelete) => {
+    e.preventDefault();
+    this.setState({
+        workExperience:this.state.workExperience.filter((job) => job !== jobToDelete)
+    })
+  }
   addEdu = (e) => {
     e.preventDefault();
     if (JSON.stringify(this.state.currentEdu) === "{}") return;
@@ -146,7 +152,6 @@ class InputForm extends React.Component {
   };
   deleteEdu = (e, degreeToDelete) => {
     e.preventDefault();
-    const saveEduProgress = this.state.currentEdu;
     this.setState({
         education:this.state.education.filter((degree) => degree !== degreeToDelete)
     })
@@ -199,6 +204,7 @@ class InputForm extends React.Component {
             education={education}
             workExperience={workExperience}
             deleteEdu = {this.deleteEdu}
+            deleteWork = {this.deleteWork}
           ></CVPreview>
         )}
       </div>

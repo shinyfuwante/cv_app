@@ -5,7 +5,7 @@ export default class Job extends Component {
     super(props);
   }
   render() {
-    const {job} = this.props;
+    const {job, deleteWork} = this.props;
     return (<div>
     <h4>{job.company}</h4>
     <h5>{job.title}</h5>
@@ -14,7 +14,7 @@ export default class Job extends Component {
                   ${job.endDate}`}
     </div>
     {job.description}
-    <button>Delete</button>
+    <button onClick={(e) => deleteWork(e, job)}>Delete</button>
   </div>);
   }
 }
