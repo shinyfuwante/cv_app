@@ -6,7 +6,7 @@ class EduInfo extends React.Component {
     super(props);
   }
   render() {
-    const { eduChange } = this.props;
+    const { eduChange, addEdu } = this.props;
     return (
       <form className="edu-info">
         <input
@@ -53,6 +53,7 @@ class EduInfo extends React.Component {
             placeholder="End Date"
           />
         </div>
+        <button onClick={addEdu}>Add</button>
       </form>
     );
   }

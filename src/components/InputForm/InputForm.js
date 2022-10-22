@@ -131,12 +131,21 @@ class InputForm extends React.Component {
       currentWork: {},
     });
   };
+  addEdu = (e) => {
+    e.preventDefault();
+    if (JSON.stringify(this.state.currentEdu) === "{}") return;
+    console.log(this.state.currentEdu);
+    this.setState({
+      education: this.state.education.concat(this.state.currentEdu),
+      currentEdu: {},
+    });
+  };
   printState = (e) => {
     console.log(this.state);
   };
   clickPreview = () => {
     this.setState({
-        showPreview: true,
+      showPreview: true,
     });
   };
   render() {
@@ -148,22 +157,22 @@ class InputForm extends React.Component {
       workExperience,
       currentEdu,
       currentWork,
-      showPreview
+      showPreview,
     } = this.state;
     return (
       <div className="input-form-wrapper">
         <h3 id="general-header">General Information</h3>
         <General generalChange={this.generalChange}></General>
         <h3 id="education-header">Education</h3>
-        <EduInfo eduChange={this.educationChange}></EduInfo>
+        <EduInfo
+          eduChange={this.educationChange}
+          addEdu={this.addEdu}
+        ></EduInfo>
         <h3 id="work-header">Work History</h3>
-        <WorkInfo
-          addWork={this.addWork}
-          workChange={this.workChange}
-        />
+        <WorkInfo addWork={this.addWork} workChange={this.workChange} />
         <button onClick={this.printState}>state</button>
         <button onClick={this.clickPreview}>Preview CV</button>
-        {this.state.showPreview && 
+        {this.state.showPreview && (
           <CVPreview
             name={fullName}
             email={email}
@@ -171,7 +180,7 @@ class InputForm extends React.Component {
             education={education}
             workExperience={workExperience}
           ></CVPreview>
-        }
+        )}
       </div>
     );
   }
