@@ -6,9 +6,9 @@ class EduInfo extends React.Component {
     super(props);
   }
   render() {
-    const { eduChange, addEdu } = this.props;
+    const { eduChange, addEdu, currEdu, eduID } = this.props;
     return (
-      <form className="edu-info">
+      <form className="edu-info" key={eduID}>
         <input
           onChange={eduChange}
           type="text"

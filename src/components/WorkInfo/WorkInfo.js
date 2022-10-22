@@ -6,9 +6,9 @@ class WorkInfo extends React.Component {
     super(props);
   }
   render() {
-    const { workChange, addWork} = this.props;
+    const { workChange, addWork, workID} = this.props;
     return (
-      <form className="work-info">
+      <form className="work-info" key = {workID}>
         <input
           onChange = {workChange}
           type="text"

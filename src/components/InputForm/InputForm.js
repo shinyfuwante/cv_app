@@ -21,6 +21,7 @@ class InputForm extends React.Component {
         startDate: "",
         endDate: "",
       },
+      eduID: new Date(),
       workExperience: [],
       currentWork: {
         company: "",
@@ -29,6 +30,7 @@ class InputForm extends React.Component {
         startDate: "",
         endDate: "",
       },
+      workID: new Date(),
       showPreview: false,
     };
   }
@@ -129,6 +131,7 @@ class InputForm extends React.Component {
     this.setState({
       workExperience: this.state.workExperience.concat(this.state.currentWork),
       currentWork: {},
+      workID: new Date(),
     });
   };
   addEdu = (e) => {
@@ -138,6 +141,7 @@ class InputForm extends React.Component {
     this.setState({
       education: this.state.education.concat(this.state.currentEdu),
       currentEdu: {},
+      eduID: new Date(),
     });
   };
   printState = (e) => {
@@ -158,6 +162,8 @@ class InputForm extends React.Component {
       currentEdu,
       currentWork,
       showPreview,
+      eduID,
+      workID,
     } = this.state;
     return (
       <div className="input-form-wrapper">
@@ -167,9 +173,15 @@ class InputForm extends React.Component {
         <EduInfo
           eduChange={this.educationChange}
           addEdu={this.addEdu}
+          currEdu={currentEdu}
+          eduID={eduID}
         ></EduInfo>
         <h3 id="work-header">Work History</h3>
-        <WorkInfo addWork={this.addWork} workChange={this.workChange} />
+        <WorkInfo
+          addWork={this.addWork}
+          workChange={this.workChange}
+          workID={workID}
+        />
         <button onClick={this.printState}>state</button>
         <button onClick={this.clickPreview}>Preview CV</button>
         {this.state.showPreview && (
