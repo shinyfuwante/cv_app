@@ -20,6 +20,7 @@ class InputForm extends React.Component {
         subject: "",
         startDate: "",
         endDate: "",
+        isEditing: false,
       },
       eduID: new Date(),
       workExperience: [],
@@ -29,6 +30,7 @@ class InputForm extends React.Component {
         description: "",
         startDate: "",
         endDate: "",
+        isEditing: false,
       },
       workID: new Date(),
       showPreview: false,
@@ -150,6 +152,23 @@ class InputForm extends React.Component {
       eduID: new Date(),
     });
   };
+  editEdu = (e, degreeToEdit) => {
+    e.preventDefault();
+    degreeToEdit.isEditing = !degreeToEdit.isEditing;
+    this.setState({
+        currEdu: {degreeToEdit}
+    })
+  }
+  finishEditEdu = (e, degreeToEdit) => {
+    e.preventDefault();
+    degreeToEdit.isEditing = !degreeToEdit.isEditing;
+    const newEduArray = [...this.state.education];
+    const newEdu = degreeToEdit;
+    newEduArray[newEduArray.indexOf(degreeToEdit)] = newEdu;
+    this.setState({
+        education: newEduArray
+    })
+  }
   deleteEdu = (e, degreeToDelete) => {
     e.preventDefault();
     this.setState({
@@ -203,6 +222,8 @@ class InputForm extends React.Component {
             phoneNum={phoneNum}
             education={education}
             workExperience={workExperience}
+            editEdu = {this.editEdu}
+            finishEditEdu = {this.finishEditEdu}
             deleteEdu = {this.deleteEdu}
             deleteWork = {this.deleteWork}
           ></CVPreview>

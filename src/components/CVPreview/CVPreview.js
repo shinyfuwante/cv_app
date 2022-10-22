@@ -15,6 +15,8 @@ export default class CVPreview extends Component {
       workExperience,
       deleteEdu,
       deleteWork,
+      editEdu,
+      finishEditEdu,
     } = this.props;
     return (
       <>
@@ -25,9 +27,11 @@ export default class CVPreview extends Component {
         {education.map((degree) => {
           return (
             <Degree
-              degree={degree}
+              degreeAcq={degree}
               key={`${degree.uni} and ${degree.subject} and ${degree.degree}`}
               deleteEdu={deleteEdu}
+              editEdu = {editEdu}
+              finishEditEdu = {finishEditEdu}
             />
           );
         })}
