@@ -3,13 +3,14 @@ import "./InputForm.css";
 import General from "../General";
 import EduInfo from "../EduInfo";
 import WorkInfo from "../WorkInfo";
+import CVPreview from "../CVPreview";
 
 class InputForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fullName: "Full Name",
-      email: "your@email.com",
+      fullName: "Tony Pepperoni",
+      email: "pizzabronytony@email.com",
       phoneNum: "(111) 222-3333",
       education: [],
       currentEdu: {
@@ -28,6 +29,7 @@ class InputForm extends React.Component {
         startDate: "",
         endDate: "",
       },
+      showPreview: false,
     };
   }
   generalChange = (e) => {
@@ -66,24 +68,24 @@ class InputForm extends React.Component {
         break;
       case "degree":
         this.setState((state) => {
-            state.currentEdu.degree = info;
-          });
-          break;
+          state.currentEdu.degree = info;
+        });
+        break;
       case "subject":
         this.setState((state) => {
-            state.currentEdu.subject = info;
-          });
-          break;
+          state.currentEdu.subject = info;
+        });
+        break;
       case "startEdu":
         this.setState((state) => {
-            state.currentEdu.startDate = info;
-          });
-          break;
+          state.currentEdu.startDate = info;
+        });
+        break;
       case "endEdu":
         this.setState((state) => {
-            state.currentEdu.endDate = info;
-          });
-          break;
+          state.currentEdu.endDate = info;
+        });
+        break;
       default:
         return;
     }
@@ -103,28 +105,51 @@ class InputForm extends React.Component {
         break;
       case "workDesc":
         this.setState((state) => {
-            state.currentWork.description = info;
-          });
-          break;
+          state.currentWork.description = info;
+        });
+        break;
       case "startWork":
         this.setState((state) => {
-            state.currentWork.startDate = info;
-          });
-          break;
+          state.currentWork.startDate = info;
+        });
+        break;
       case "endWork":
         this.setState((state) => {
-            state.currentEdu.endDate = info;
-          });
-          break;
+          state.currentWork.endDate = info;
+        });
+        break;
       default:
         return;
     }
   };
+  addWork = (e) => {
+    e.preventDefault();
+    if (JSON.stringify(this.state.currentWork) === "{}") return;
+    console.log(this.state.currentWork);
+    this.setState({
+      workExperience: this.state.workExperience.concat(this.state.currentWork),
+      currentWork: {},
+    });
+  };
   printState = (e) => {
     console.log(this.state);
   };
+  clickPreview = () => {
+    this.setState({
+        showPreview: true,
+    });
+  };
   render() {
-    const { fullName, email, phoneNum, education, workExperience, currentEdu, currentWork } = this.state;
+    const {
+      fullName,
+      email,
+      phoneNum,
+      education,
+      workExperience,
+      currentEdu,
+      currentWork,
+      showPreview
+    } = this.state;
     return (
       <div className="input-form-wrapper">
         <h3 id="general-header">General Information</h3>
@@ -132,8 +157,21 @@ class InputForm extends React.Component {
         <h3 id="education-header">Education</h3>
         <EduInfo eduChange={this.educationChange}></EduInfo>
         <h3 id="work-header">Work History</h3>
-        <WorkInfo workChange = {this.workChange}></WorkInfo>
+        <WorkInfo
+          addWork={this.addWork}
+          workChange={this.workChange}
+        />
         <button onClick={this.printState}>state</button>
+        <button onClick={this.clickPreview}>Preview CV</button>
+        {this.state.showPreview && 
+          <CVPreview
+            name={fullName}
+            email={email}
+            phoneNum={phoneNum}
+            education={education}
+            workExperience={workExperience}
+          ></CVPreview>
+        }
       </div>
     );
   }
