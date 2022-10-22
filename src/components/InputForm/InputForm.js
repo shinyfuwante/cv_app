@@ -144,6 +144,13 @@ class InputForm extends React.Component {
       eduID: new Date(),
     });
   };
+  deleteEdu = (e, degreeToDelete) => {
+    e.preventDefault();
+    const saveEduProgress = this.state.currentEdu;
+    this.setState({
+        education:this.state.education.filter((degree) => degree !== degreeToDelete)
+    })
+  }
   printState = (e) => {
     console.log(this.state);
   };
@@ -191,6 +198,7 @@ class InputForm extends React.Component {
             phoneNum={phoneNum}
             education={education}
             workExperience={workExperience}
+            deleteEdu = {this.deleteEdu}
           ></CVPreview>
         )}
       </div>
