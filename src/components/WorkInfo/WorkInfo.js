@@ -6,7 +6,7 @@ class WorkInfo extends React.Component {
     super(props);
   }
   render() {
-    const { workChange } = this.props;
+    const { workChange, addWork} = this.props;
     return (
       <form className="work-info">
         <input
@@ -47,6 +47,7 @@ class WorkInfo extends React.Component {
             placeholder="End Date"
           />
         </div>
+        <button onClick={(e)=> addWork(e)}>Add</button>
       </form>
     );
   }
