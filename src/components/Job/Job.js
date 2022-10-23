@@ -31,15 +31,15 @@ export default class Job extends Component {
           />
           <input
             type="text"
-            name="startDate"
-            id="startDate"
+            name="startWork"
+            id="startWork"
             defaultValue={job.startDate}
             onChange={workChange}
           />
           <input
             type="text"
-            name="endDate"
-            id="endDate"
+            name="endWork"
+            id="endWork"
             defaultValue={job.endDate}
             onChange={workChange}
           />
