@@ -1,0 +1,22 @@
+.preview-job {
+    display: grid;
+    grid-template-columns: 8fr 2fr;
+    margin-bottom: 0.1em;
+}
+
+.preview-job > *{
+    margin: 0.1em;
+}
+.jobInfo > * {
+    margin: 0.1em;
+}
+.jobInfo > h5 {
+    font: italic;
+}
+.preview-job > .jobInfo {
+    align-self: start;
+    justify-self: left;
+}
+.workDates {
+    justify-self: right;
+}

@@ -140,25 +140,27 @@ class InputForm extends React.Component {
     e.preventDefault();
     job.isEditing = !job.isEditing;
     this.setState({
-        currentWork: job
-    })
-  }
+      currentWork: job,
+    });
+  };
   finishEditWork = (e, jobToEdit) => {
     e.preventDefault();
     jobToEdit.isEditing = !jobToEdit.isEditing;
     const newWorkArray = [...this.state.workExperience];
     newWorkArray[newWorkArray.indexOf(jobToEdit)] = this.state.currentWork;
     this.setState({
-        workExperience: newWorkArray,
-        currentWork: {}
-    })
-  }
+      workExperience: newWorkArray,
+      currentWork: {},
+    });
+  };
   deleteWork = (e, jobToDelete) => {
     e.preventDefault();
     this.setState({
-        workExperience:this.state.workExperience.filter((job) => job !== jobToDelete)
-    })
-  }
+      workExperience: this.state.workExperience.filter(
+        (job) => job !== jobToDelete
+      ),
+    });
+  };
   addEdu = (e) => {
     e.preventDefault();
     if (JSON.stringify(this.state.currentEdu) === "{}") return;
@@ -173,25 +175,27 @@ class InputForm extends React.Component {
     e.preventDefault();
     degreeToEdit.isEditing = !degreeToEdit.isEditing;
     this.setState({
-        currentEdu: degreeToEdit
-    })
-  }
+      currentEdu: degreeToEdit,
+    });
+  };
   finishEditEdu = (e, degreeToEdit) => {
     e.preventDefault();
     degreeToEdit.isEditing = !degreeToEdit.isEditing;
     const newEduArray = [...this.state.education];
     newEduArray[newEduArray.indexOf(degreeToEdit)] = this.state.currentEdu;
     this.setState({
-        education: newEduArray,
-        currentEdu: {},
-    })
-  }
+      education: newEduArray,
+      currentEdu: {},
+    });
+  };
   deleteEdu = (e, degreeToDelete) => {
     e.preventDefault();
     this.setState({
-        education:this.state.education.filter((degree) => degree !== degreeToDelete)
-    })
-  }
+      education: this.state.education.filter(
+        (degree) => degree !== degreeToDelete
+      ),
+    });
+  };
   printState = (e) => {
     console.log(this.state);
   };
@@ -215,23 +219,24 @@ class InputForm extends React.Component {
     } = this.state;
     return (
       <div className="input-form-wrapper">
-        <h3 id="general-header">General Information</h3>
-        <General generalChange={this.generalChange}></General>
-        <h3 id="education-header">Education</h3>
-        <EduInfo
-          eduChange={this.educationChange}
-          addEdu={this.addEdu}
-          currEdu={currentEdu}
-          eduID={eduID}
-        ></EduInfo>
-        <h3 id="work-header">Work History</h3>
-        <WorkInfo
-          addWork={this.addWork}
-          workChange={this.workChange}
-          workID={workID}
-        />
-        <button onClick={this.printState}>state</button>
-        <button onClick={this.clickPreview}>Preview CV</button>
+        <div className="input-info">
+          <h3 id="general-header">General Information</h3>
+          <General generalChange={this.generalChange}></General>
+          <h3 id="education-header">Education</h3>
+          <EduInfo
+            eduChange={this.educationChange}
+            addEdu={this.addEdu}
+            currEdu={currentEdu}
+            eduID={eduID}
+          ></EduInfo>
+          <h3 id="work-header">Work History</h3>
+          <WorkInfo
+            addWork={this.addWork}
+            workChange={this.workChange}
+            workID={workID}
+          />
+          <button onClick={this.clickPreview}>Preview CV</button>
+        </div>
         {this.state.showPreview && (
           <CVPreview
             name={fullName}
@@ -239,14 +244,14 @@ class InputForm extends React.Component {
             phoneNum={phoneNum}
             education={education}
             workExperience={workExperience}
-            editEdu = {this.editEdu}
+            editEdu={this.editEdu}
             eduChange={this.educationChange}
-            finishEditEdu = {this.finishEditEdu}
-            deleteEdu = {this.deleteEdu}
-            editWork = {this.editWork}
-            finishEditWork = {this.finishEditWork}
-            workChange = {this.workChange}
-            deleteWork = {this.deleteWork}
+            finishEditEdu={this.finishEditEdu}
+            deleteEdu={this.deleteEdu}
+            editWork={this.editWork}
+            finishEditWork={this.finishEditWork}
+            workChange={this.workChange}
+            deleteWork={this.deleteWork}
           ></CVPreview>
         )}
       </div>

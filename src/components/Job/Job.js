@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./Job.css";
 
 export default class Job extends Component {
   constructor(props) {
@@ -14,7 +15,7 @@ export default class Job extends Component {
       button = <button onClick={(e) => finishEditWork(e, job)}>Submit</button>;
       console.log("oh");
       component = (
-        <>
+        <div className="edit-job">
           <input
             type="text"
             name="companyName"
@@ -49,20 +50,22 @@ export default class Job extends Component {
             defaultValue={job.description}
             onChange={workChange}
           ></textarea>
-        </>
+        </div>
       );
     } else {
       button = <button onClick={(e) => editWork(e, job)}>Edit</button>;
       component = (
         <>
-          <div>
-            <h4>{job.company}</h4>
-            <h5>{job.title}</h5>
+          <div className="preview-job">
+            <div className="jobInfo">
+              <h4>{job.title}</h4>
+              <h5>{job.company}</h5>
+              {job.description}
+            </div>
             <div className="workDates">
               {`${job.startDate} to
                           ${job.endDate}`}
             </div>
-            {job.description}
           </div>
         </>
       );

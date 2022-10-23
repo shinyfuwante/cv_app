@@ -1,10 +1,15 @@
 # CV Application
 
-This is my first foray into using React, and I will be creating an application that can take in many inputs in a form and spit out a CV/Resume. This project aims to heavily use props/state and solidify these concepts for me before I move on to other React topics.
+This is my first foray into using React, and I will be creating an application that can take in many inputs in a form and spit out a CV/Resume. This uses class components, which I am aware are out of style, but I figured would be valuable to at least do one project in class components to be familiar with them. This project aims to heavily use props/state and solidify these concepts for me before I move on to other React topics. 
 
 Also, I will be trying to use barrels to export/import components for fun. 
 
+Lessons:
+1) Try to have state at the lowest level possible to avoid any bloat. For this project, it seemed hard to have state at any level other than the top application level, as it was required to display the saved field inputs into the preview. 
 
+2) Props are not to be changed and every function using props should be pure. 
+
+3) Never use a function to directly modify the dom, let React handle it using .setState(). 
 
 ----------------------------------------------------------
 

@@ -1,0 +1,12 @@
+.previewEdu {
+    display: grid;
+    grid-template-columns: 8fr 1fr;
+}
+
+.previewEdu > .eduDates {
+    justify-self: right;
+}
+
+.degreeInfo > * {
+    margin: 0.1em;
+}
