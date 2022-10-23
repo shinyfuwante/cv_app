@@ -15,12 +15,12 @@ export default class Degree extends Component {
       );
       component = (
         <>
-        <input type="text" name="degree" id="degree" value={degree}/>
-        <input type="text" name="subject" id="subject" value={subject}/>
-        <input type="text" name="uni" id="uni" value={uni}/>
-        <input type="text" name="city" id="city" value={city}/>
-        <input type="text" name="startDate" id="startDate" value={startDate}/>
-        <input type="text" name="endDate" id="endDate" value={endDate}/>
+        <input type="text" name="degree" id="degree" defaultValue={degree}/>
+        <input type="text" name="subject" id="subject" defaultValue={subject}/>
+        <input type="text" name="uni" id="uni" defaultValue={uni}/>
+        <input type="text" name="city" id="city" defaultValue={city}/>
+        <input type="text" name="startDate" id="startDate" defaultValue={startDate}/>
+        <input type="text" name="endDate" id="endDate" defaultValue={endDate}/>
         </>
       )
     } else {
