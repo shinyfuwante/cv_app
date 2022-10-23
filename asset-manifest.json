@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/shinyfuwante/cv_app/static/css/main.7e9c850b.css",
+    "main.js": "/shinyfuwante/cv_app/static/js/main.c74f421c.js",
+    "index.html": "/shinyfuwante/cv_app/index.html",
+    "main.7e9c850b.css.map": "/shinyfuwante/cv_app/static/css/main.7e9c850b.css.map",
+    "main.c74f421c.js.map": "/shinyfuwante/cv_app/static/js/main.c74f421c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7e9c850b.css",
+    "static/js/main.c74f421c.js"
+  ]
+}
