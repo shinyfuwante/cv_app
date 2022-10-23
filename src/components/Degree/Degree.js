@@ -5,7 +5,7 @@ export default class Degree extends Component {
     super(props);
   }
   render() {
-    const { degreeAcq, deleteEdu, editEdu, finishEditEdu } = this.props;
+    const { degreeAcq, deleteEdu, editEdu, finishEditEdu, eduChange } = this.props;
     const { degree, subject, uni, city, startDate, endDate} = degreeAcq;
     let button;
     let component;
@@ -15,12 +15,12 @@ export default class Degree extends Component {
       );
       component = (
         <>
-        <input type="text" name="degree" id="degree" defaultValue={degree}/>
-        <input type="text" name="subject" id="subject" defaultValue={subject}/>
-        <input type="text" name="uni" id="uni" defaultValue={uni}/>
-        <input type="text" name="city" id="city" defaultValue={city}/>
-        <input type="text" name="startDate" id="startDate" defaultValue={startDate}/>
-        <input type="text" name="endDate" id="endDate" defaultValue={endDate}/>
+        <input type="text" name="degree" id="degree" defaultValue={degree} onChange = {eduChange}/>
+        <input type="text" name="subject" id="subject" defaultValue={subject} onChange = {eduChange}/>
+        <input type="text" name="uni" id="uni" defaultValue={uni} onChange = {eduChange}/>
+        <input type="text" name="city" id="city" defaultValue={city} onChange = {eduChange}/>
+        <input type="text" name="startDate" id="startDate" defaultValue={startDate} onChange = {eduChange}/>
+        <input type="text" name="endDate" id="endDate" defaultValue={endDate} onChange = {eduChange}/>
         </>
       )
     } else {

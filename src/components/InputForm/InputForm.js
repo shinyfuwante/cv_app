@@ -156,15 +156,14 @@ class InputForm extends React.Component {
     e.preventDefault();
     degreeToEdit.isEditing = !degreeToEdit.isEditing;
     this.setState({
-        currEdu: {degreeToEdit}
+        currentEdu: degreeToEdit
     })
   }
   finishEditEdu = (e, degreeToEdit) => {
     e.preventDefault();
     degreeToEdit.isEditing = !degreeToEdit.isEditing;
     const newEduArray = [...this.state.education];
-    const newEdu = degreeToEdit;
-    newEduArray[newEduArray.indexOf(degreeToEdit)] = newEdu;
+    newEduArray[newEduArray.indexOf(degreeToEdit)] = this.state.currentEdu;
     this.setState({
         education: newEduArray
     })
@@ -223,6 +222,7 @@ class InputForm extends React.Component {
             education={education}
             workExperience={workExperience}
             editEdu = {this.editEdu}
+            eduChange={this.educationChange}
             finishEditEdu = {this.finishEditEdu}
             deleteEdu = {this.deleteEdu}
             deleteWork = {this.deleteWork}

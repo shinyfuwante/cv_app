@@ -17,6 +17,7 @@ export default class CVPreview extends Component {
       deleteWork,
       editEdu,
       finishEditEdu,
+      eduChange,
     } = this.props;
     return (
       <>
@@ -32,6 +33,7 @@ export default class CVPreview extends Component {
               deleteEdu={deleteEdu}
               editEdu = {editEdu}
               finishEditEdu = {finishEditEdu}
+              eduChange = {eduChange}
             />
           );
         })}
