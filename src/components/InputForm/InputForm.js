@@ -136,6 +136,23 @@ class InputForm extends React.Component {
       workID: new Date(),
     });
   };
+  editWork = (e, job) => {
+    e.preventDefault();
+    job.isEditing = !job.isEditing;
+    this.setState({
+        currentWork: job
+    })
+  }
+  finishEditWork = (e, jobToEdit) => {
+    e.preventDefault();
+    jobToEdit.isEditing = !jobToEdit.isEditing;
+    const newWorkArray = [...this.state.workExperience];
+    newWorkArray[newWorkArray.indexOf(jobToEdit)] = this.state.currentWork;
+    this.setState({
+        workExperience: newWorkArray,
+        currentWork: {}
+    })
+  }
   deleteWork = (e, jobToDelete) => {
     e.preventDefault();
     this.setState({
@@ -165,7 +182,8 @@ class InputForm extends React.Component {
     const newEduArray = [...this.state.education];
     newEduArray[newEduArray.indexOf(degreeToEdit)] = this.state.currentEdu;
     this.setState({
-        education: newEduArray
+        education: newEduArray,
+        currentEdu: {},
     })
   }
   deleteEdu = (e, degreeToDelete) => {
@@ -225,6 +243,9 @@ class InputForm extends React.Component {
             eduChange={this.educationChange}
             finishEditEdu = {this.finishEditEdu}
             deleteEdu = {this.deleteEdu}
+            editWork = {this.editWork}
+            finishEditWork = {this.finishEditWork}
+            workChange = {this.workChange}
             deleteWork = {this.deleteWork}
           ></CVPreview>
         )}
